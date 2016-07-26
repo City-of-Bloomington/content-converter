@@ -1,0 +1,46 @@
+    <header>
+      <div class="container">
+        <h1><a href="/">Content Converter</a></h1>
+        <h2><a href="/">City of Bloomington, Indiana</a></h2>
+        <div class="utilityBar">
+
+        
+          <nav class="dropdown"> <button class="launcher" id="genericMenuLauncher" aria-haspopup="true" aria-expanded="false">Login</button>
+            <div class="links" aria-labeledby="genericMenuLauncher" hidden="">
+              {% if user.is_authenticated %}
+              <a href="/logout/">Log out</a>
+              {% else %}
+              <a href="/login/">Log in</a>
+              {% endif %}
+            </div>
+          </nav>
+
+          <nav class="dropdown"> <button class="launcher" id="adminMenuLauncher" aria-haspopup="true" aria-expanded="false">Administration</button>
+            <div aria-labeledby="adminMenuLauncher" class="links" hidden="">
+              <div class="subgroup"> <a href="#">Manage users</a> <a href="#">Update resources</a> </div>
+              <div class="subgroup"> <a href="#">Manage users</a> <a href="#">Update resources</a> </div>
+            </div>
+          </nav>
+
+        </div>
+      </div>
+      <nav id="nav1">
+        <div class="container">
+          {% for item in items %}
+          {% if item.0 %}
+          <a href="{{item.0}}">
+          {% endif %}
+            
+            {{ item.1 }}
+            
+          {% if item.0 %}
+          </a>
+          {% endif %}
+          
+          {% endfor %}
+        </div>
+      </nav>
+    </header>
+
+
+    

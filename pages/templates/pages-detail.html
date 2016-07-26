@@ -1,0 +1,94 @@
+{% extends "layout.html" %}
+
+{% block title %}{{ page.title }}{% endblock %}
+
+{% block content %}
+
+<main>
+  <div class="split-container">
+    <section>
+      <header>
+        <h1>{{ page.title }}</h1>
+        <div class="tools">
+          <a href="{{ page.full_path }}">[ link ]</a>
+        </div>
+      </header>
+
+      <aside class="highlights">
+        <div class="highlights-group">
+          <dl class="output-field-implicit"> <dt>Position</dt>
+            <dd>{{ page.position }}</dd>
+          </dl>
+          
+          <dl class="output-field-implicit"> <dt>Page Views</dt>
+            <dd>{{ page.page_views }}</dd>
+          </dl>
+          
+          <dl class="output-field-implicit"> <dt>Default Topic</dt>
+            <dd>
+              {% if page.default_topic %}
+              <a href="{% url 'topics:details' page.default_topic.tag %}">{{ page.default_topic.name }}</a>
+              {% else %}
+              None
+              {% endif %}
+              
+            </dd>
+          </dl>
+          
+          <dl class="output-field-implicit"> <dt>Status</dt>
+            <dd>
+              {{ page.status }}
+            </dd>
+          </dl>
+          
+        </div>        
+      </aside>
+      
+      
+    </section>
+    
+    <ul>
+      <h2>Topics:</h2>
+      
+      {% for pagetopic in page.pagetopic_set.all %}
+      <li> <a href="{% url 'topics:details' pagetopic.topic.tag %}">{{ pagetopic.topic.name }}</a></li>
+      {% endfor %}  
+      
+      <a href="{% url 'pages:comment' page.id %}">Add topic</a>
+      
+    </ul>
+    
+    
+    <ul>
+      <h2>Comments: ({{ page.comment_set.count }})</h2>
+      
+      {% for comment in page.comments %}
+      <li>{{ comment.added }}: {{ comment.user.name }}<br>
+        {{ comment.content }}
+      </li>
+      {% endfor %}  
+      
+      <a href="{% url 'pages:comment' page.id %}">Add comment</a>
+      
+    </ul>    
+  </div> {# class="split-container"> #}
+  <div class="split-container">
+    <section>
+      <header>
+        <h2>Destination Page</h2>
+      </header>
+      <div>
+        Find existing: [ by alias ], [ by id ]<br>
+        Create new
+      </div>
+    </section>
+  </div>
+    
+</main>
+{% endblock %} {# content #}
+    
+{% block script %}
+<script type="text/javascript">
+</script>
+{% endblock %}
+

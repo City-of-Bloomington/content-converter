@@ -1,0 +1,76 @@
+*2016.07.20 08:43:35 code
+/c/bloomington-code/content_converter/instances.txt
+/c/bloomington-code/content_converter/launch.sh
+/c/bloomington-code/content_converter/pages/views.py
+/c/bloomington-code/content_converter/pages/urls.py
+/c/bloomington-code/content_converter/converter/urls.py
+/c/bloomington-code/content_converter/navigation/__init__.py
+/c/bloomington-code/content_converter/templates/layout.html
+/c/bloomington-code/content_converter/navigation/templatetags/navigation.py
+/c/bloomington-code/content_converter/pages/templates/pages-index.html
+/c/bloomington-code/content_converter/templates/navigation.html
+/c/bloomington-code/content_converter/converter/settings.py
+/c/bloomington-code/content_converter/README.txt
+/c/bloomington-code/content_converter/scripts/make_departments.py
+/c/bloomington-code/content_converter/scripts/departments.csv
+/c/bloomington-code/content_converter/departments/models.py
+/c/bloomington-code/content_converter/topics/models.py
+/c/bloomington-code/content_converter/pages/models.py
+/c/bloomington-code/content_converter/scripts/import_spreadsheet.py
+
+
+*2016.06.24 11:34:18 code
+/c/bloomington/code/content_converter/instances.txt
+/c/bloomington/code/content_converter/launch.sh
+/c/bloomington/code/content_converter/pages/views.py
+/c/bloomington/code/content_converter/pages/urls.py
+/c/bloomington/code/content_converter/converter/urls.py
+/c/bloomington/code/content_converter/navigation/__init__.py
+/c/bloomington/code/content_converter/templates/layout.html
+/c/bloomington/code/content_converter/navigation/templatetags/navigation.py
+/c/bloomington/code/content_converter/pages/templates/pages-index.html
+/c/bloomington/code/content_converter/templates/navigation.html
+/c/bloomington/code/content_converter/converter/settings.py
+/c/bloomington/code/content_converter/README.txt
+/c/bloomington/code/content_converter/scripts/make_departments.py
+/c/bloomington/code/content_converter/scripts/departments.csv
+/c/bloomington/code/content_converter/departments/models.py
+/c/bloomington/code/content_converter/topics/models.py
+/c/bloomington/code/content_converter/pages/models.py
+/c/bloomington/code/content_converter/scripts/import_spreadsheet.py
+
+*2016.06.14 16:48:23 code
+/c/bloomington/code/content_converter/instances.txt
+/c/bloomington/code/content_converter/README.txt
+/c/bloomington/code/content_converter/scripts/make_departments.py
+/c/bloomington/code/content_converter/scripts/departments.csv
+/c/bloomington/code/content_converter/pages/models.py
+/c/bloomington/code/content_converter/converter/settings.py
+/c/bloomington/code/content_converter/departments/models.py
+/c/bloomington/code/content_converter/templates/navigation.html
+/c/bloomington/code/content_converter/pages/templates/pages-index.html
+/c/bloomington/code/content_converter/navigation/templatetags/navigation.py
+/c/bloomington/code/content_converter/templates/layout.html
+/c/bloomington/code/content_converter/navigation/__init__.py
+/c/bloomington/code/content_converter/converter/urls.py
+/c/bloomington/code/content_converter/pages/urls.py
+/c/bloomington/code/content_converter/pages/views.py
+/c/bloomington/code/content_converter/launch.sh
+
+*2016.06.13 12:34:21 code
+/c/bloomington/code/content_converter/instances.txt
+/c/bloomington/code/content_converter/launch.sh
+/c/bloomington/code/content_converter/converter/settings.py
+
+*2016.06.13 10:24:45 code
+/c/bloomington/code/content_converter/instances.txt
+/c/bloomington/code/content_converter/launch.sh
+
+
+*2016.06.13 10:24:45 todo
+/c/bloomington/code/content_converter/instances.txt
+/c/bloomington/code/content_converter/launch.sh
+/c/bloomington/code/content_converter/journal.txt
+/c/bloomington/code/content_converter/todo.txt
+
+

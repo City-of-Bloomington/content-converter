@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %}{{ topic.name }}{% endblock %}
+
+{% block content %}
+
+  <h1>Topic: {{ topic.name }}</h1>
+
+  <ul>
+    <h2>Pages:</h2>
+    
+{% for pagetopic in topic.pagetopic_set.all %}
+    <li> <a href="{% url 'pages:details' pagetopic.page.id %}">{{ pagetopic.page.title }}</a>
+
+    </li>
+{% endfor %}  
+
+  </ul>
+
+
+{% endblock %} {# content #}
+    
+{% block script %}
+<script type="text/javascript">
+</script>
+{% endblock %}
+

@@ -1,0 +1,57 @@
+<table id="page-list">
+  <thead>
+    <tr>
+      <th scope="col">Title</th>
+      <th scope="col">Position</th>
+      <th scope="col">Source Page</th>
+      <th scope="col">Page Views</th>
+      <th scope="col">Default Topic</th>
+      <th scope="col">Status</th>
+      <th scope="col">Comments</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    {% for page in pages %}
+    <tr>
+      <th scope="row" class="page-title"><a href="{% url 'pages:details' page.id %}">{{ page.title }}</a>
+      </th>
+      <td class="page-position">
+        {{ page.position }}
+      </td>
+
+      <td class="page-direct-link">
+          <a href="{{ page.full_path }}">[ link ]</a>
+      </td>
+      
+      <td class="page-views">
+        {{ page.page_views }}
+      </td>
+
+      <td class="page-default-topic">
+        {% if page.default_topic %}
+        <a href="{% url 'topics:details' page.default_topic.tag %}">{{ page.default_topic.name }}</a>
+        {% endif %}
+      </td>
+
+      <td class="page-status">
+        {{ page.status }}
+      </td>
+
+      <td class="page-comments">
+        {{ page.comment_set.count }}
+      </td>      
+      
+    </tr>
+    {% endfor %}
+    
+  </tbody>
+</table>
+
+{% load staticfiles %}
+<script src="{% static "js2/tablesort.min.js" %}"></script>
+<script src="{% static "js2/tablesort.number.js" %}"></script>
+<script type="text/javascript">
+ new Tablesort(document.getElementById('page-list'));
+</script>
+
