@@ -16,3 +16,6 @@ class Topic(models.Model):
     #optional field
     parent = models.ForeignKey('self', blank=True, null=True)
 
+    def __str__(self):
+        return self.name
+

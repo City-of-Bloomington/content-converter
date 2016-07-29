@@ -1,5 +1,5 @@
 from django.http import Http404
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 # Create your views here.
 from models import Department
@@ -7,7 +7,7 @@ from models import Department
 def index(request):
     results = ''
 
-    department_options = Department.objects.all()
+    department_options = Department.objects.all().order_by('name')
 
     context = {
         'departments': department_options,

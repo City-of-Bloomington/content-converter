@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block title %}Add/Edit Page{% endblock %}
+
+{% block custom_css %}
+    <link rel="stylesheet" href="/static/css/wide_form.css" type="text/css" media="screen" />
+{% endblock %}
+
+{% block content %}
+
+    <section>
+      <header>
+        <h1>New Page</h1>
+      </header>
+
+      {% if results %}
+      <p>{{ results|safe }}</p>
+      {% endif %}
+
+      <div class="uiBlock-content">
+        <form action="{{ upload_url }}" method="POST" enctype="multipart/form-data" class="form-horizontal">
+          {% csrf_token %}
+          
+          {{ form.non_field_errors }}
+          
+          {% include "form_template.html" with form=pageform %}
+          
+          <div class="col-sm-offset-3 col-sm-9">
+            <button type="submit" class="btn btn-success">Save</button>
+          </div>
+
+          <div class="delete">
+            <button class="delete">Save</button>
+          </div>
+          
+        </form>
+        <form action="{% url 'pages:dest_detail' page.id|lower conversion.destination.id|lower %}">
+          <input type="submit" value="Go to Google">
+        </form>
+      </div>
+    </section>
+{% endblock %} {# content #}
+    
+{% block script %}
+<script type="text/javascript">
+</script>
+{% endblock %}
+

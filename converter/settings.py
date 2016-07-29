@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'topics.apps.TopicsConfig',
     'departments.apps.DepartmentsConfig',
     'navigation',
+    'widget_type',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

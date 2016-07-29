@@ -39,9 +39,11 @@
 
     {% load navigation %}
     {% make_nav %}
-    
+
+    <main>
     {% block content %}{% endblock %}
-	
+    </main>
+    
     {# footer goes here, as needed #}
 
     <script src="/static/js/lib/jquery-1.11.2.min.js"></script>

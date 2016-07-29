@@ -35,6 +35,7 @@ def make_nav(context):
         #nav_items.append( ('/location/', "Map") )
         pass
 
+    nav_items.append( ('/pages/search', "Search") )
     nav_items.append( ('/pages/', "Pages") )
     nav_items.append( ('/departments/', "Departments") )
     nav_items.append( ('/topics/', "Topics") )

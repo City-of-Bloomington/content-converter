@@ -4,19 +4,10 @@
 
 {% block content %}
 
-<h1>{{ department.name }} Pages:</h1>
-Total pages: {{ department.departmentpage_set.count }}
-
+<h1>{{ department.name }} Pages ({{ department.departmentpage_set.count }})</h1>
 
 {% include "pages-list.html" %}
 
-<ul>
-{% for deptpage in department.departmentpage_set.all %}
-
-  <li><a href="{% url 'pages:details' deptpage.page.id %}">{{ deptpage.page.title }}</a></li>
-
-{% endfor %}  
-</ul>
 {% endblock %} {# content #}
     
 {% block script %}

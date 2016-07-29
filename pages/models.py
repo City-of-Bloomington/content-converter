@@ -6,41 +6,63 @@ from django.db import models
 from departments.models import Department
 from topics.models import Topic
 
+SITE_OPTIONS = (
+    ('bloomington.in.gov/alpha', 'Alpha (destination)'),
+    ('bloomington.in.gov', 'Current (source)'),
+    )
+
 # Create your models here.
 class Page(models.Model):
-    url = models.CharField(max_length=200)
-
     title = models.CharField(max_length=200)
 
     #alpha vs. current
     #maybe it is better to just use "source" and "destination"
     #could have a different model to track where "source" and "destination" map
-    site = models.CharField(max_length=30)
+    #
+    #however, site is also used by templates to render the full URL
+    site = models.CharField(max_length=30, choices=SITE_OPTIONS, default="")
+
+    #for a destination page, we may not know the url yet
+    #if it hasn't been created
+    #typically, this is just the suffix path without the site aspect
+    url = models.CharField(max_length=200, blank=True)
+
+    #hopfully, on the new alpha site, alias and url will usually match
     alias = models.CharField(max_length=50, blank=True)
 
-    #mostly useful for new, alpha site pages:
+    #mostly useful for destination, new, alpha site pages:
     #e.g. book page, normal page, etc
     page_type = models.CharField(max_length=30, blank=True)
 
-    #not sure if this should be a ForeignKey to another page
-    #or just the url of the page referenced
-    parent_page = models.CharField(max_length=200, blank=True)
-
-    default_topic = models.ForeignKey(Topic, null=True)
-    
     #unknown, pending, delete/ignore, migrated
     status = models.CharField(max_length=30, default="unknown")
 
     #similar to status... a few spreadsheets had more than one colum
     notes = models.TextField(blank=True)
 
-    #section_id = models.IntegerField()
-    section_id = models.CharField(max_length=10, blank=True)
-
     #priority for conversion? (not sure if this is useful)
     position = models.IntegerField(default=-1)
 
+    #not sure if this should be a ForeignKey to another page
+    #or just the url of the page referenced
+    parent_page = models.CharField(max_length=200, blank=True)
+
+    default_topic = models.ForeignKey(Topic, null=True)
+
     #comma separated list should be fine
+    #these are the people who should be notified
+    #for any tasks or changes to the page
+    contacts = models.CharField(max_length=200, blank=True)
+
+    
+    #section_id = models.IntegerField()
+    section_id = models.CharField(max_length=10, blank=True)
+
+    #comma separated list should be fine
+    #these are the categories from the original CMS
+    # (found in the last columns in spreadsheets)
+    #not to be confused with new topics
+    #informational only
     categories = models.CharField(max_length=200)
 
     #keep a snapshot of what was there at the time of the last scan
@@ -68,7 +90,11 @@ class Page(models.Model):
         return self.title
 
     def full_path(self):
-        return "https://" + self.site + self.url
+        base = "https://" + self.site 
+        if self.alias:
+            return base + self.alias
+        else:
+            return base + self.url
 
 
 class Conversion(models.Model):

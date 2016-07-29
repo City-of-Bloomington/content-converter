@@ -1,0 +1,33 @@
+{% load widget_type %}
+
+{% for field in form %}
+<dl>
+  <dt>
+    {{ field.label_tag }}
+    {% if field.field.required %}
+    <span class="required">*</span>
+    {% endif %}
+  </dt>
+
+  <dd>
+    {% if field|widget_type == "RadioSelect" %}
+
+    {% for radio in field %}
+    <label for="{{ radio.id_for_label }}">
+      {{ radio.choice_label }}
+      <span class="radio">{{ radio.tag }}</span>
+    </label>
+    {% endfor %}
+
+    {% else %}
+    {{ field }}
+    {% endif %}
+    
+    <span class="error">
+      {{ field.errors }}
+    </span>
+  </dd>
+  
+</dl>
+
+{% endfor %}
