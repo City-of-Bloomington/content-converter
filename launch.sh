@@ -18,7 +18,7 @@ launch.py -c $ROOT layout
 ifconfig
 
 cd /c/bloomington-code/content_converter
-python manage.py runserver 192.168.56.101:8000
+python manage.py runserver 192.168.56.104:5000
 
 "
 

@@ -260,10 +260,7 @@ def delete(request, page_id):
         'deleteform': deleteform,
         'associated': associated,
         }
-    return render(request, 'pages-delete.html', context)
-
-
-    
+    return render(request, 'pages-delete.html', context)    
 
 
 def comment(request, page_id=None):
