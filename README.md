@@ -11,7 +11,13 @@ Site Migration helps track this process. An initial scan of the source yields th
 Installation
 ------------------
 
-Install Django, and install a database.
+Install Django, and install a database. This process is documented in detail as part of our systems-playbook repository:
+
+https://github.com/City-of-Bloomington/system-playbooks
+
+    cd /path/to/system-playbooks/
+    ansible-playbook playbooks/content_converter.yml -i hosts.txt --ask-become-pass --ask-vault-pass
+
 
 Clone this repository and edit converter/settings.py to reflect your database configuration. 
 
@@ -24,8 +30,15 @@ Then need to import initial data via scripts directory:
     cd scripts
     python make_departments.py 
 
+To run the web server directly:
+
+    python manage.py runserver 192.168.56.104:5000
+
+You can also configure mod_wsgi to handle requests (see ansible playbook above), in which case the server should be available. 
 
 
 
+Notes
+----------
 
 This application is written in Python on top of the Django framework, but the content management system being migrated from or to does not have to integrate with python directly. This system works with meta data or direct web requests. 

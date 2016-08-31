@@ -10,3 +10,4 @@
 .fseventsd*
 db.sqlite3
 mysql.cnf
+converter/mysql.cnf
