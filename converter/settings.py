@@ -60,7 +60,9 @@ ROOT_URLCONF = 'converter.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates'],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates'),
+            ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -85,6 +87,7 @@ DATABASES = {
     ##     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     ## }
 
+    ## #docker attempt
     ## 'default': {
     ##     'ENGINE': 'django.db.backends.mysql',
 
@@ -94,49 +97,35 @@ DATABASES = {
 
     ##     'USER' : 'mig-user',
     ##     'PASSWORD' : 'mig-password',
-    ##     #'USER' : 'root',
-    ##     #'PASSWORD' : 'my-secret-pw',
 
     ##     'PORT': '3306',
     ##     #should be whatever name is linked
     ##     #'HOST': 'db',
     ##     'HOST': '172.17.0.2',
 
-    ##     # TODO:
-    ##     # I would really like to use this setting,
-    ##     # but having difficulty getting it to work
-    ##     # moving on with direct settings for now
-    ##     # via:
-    ##     # https://docs.djangoproject.com/en/1.9/ref/databases/#connecting-to-the-database
-    ##     #'OPTIONS': {
-    ##     #    'read_default_file': 'mysql.cnf',
-    ##     #},
     ## }
 
     'default': {
         'ENGINE': 'django.db.backends.mysql',
 
         #these should be specified / set in mysql.cnf
-        #(which should make it easier to ignore them in version control)
-        'NAME' : 'example_db',
-
-        'USER' : 'example_user',
-        'PASSWORD' : 'similarly-secure-password',
+        #so they're easier to ignore them in version control
+        ## 'NAME' : 'example_db',
+        ## 'USER' : 'example_user',
+        ## 'PASSWORD' : 'similarly-secure-password',
 
         #'PORT': '3306',
-        #should be whatever name is linked
+
         #'HOST': 'db',
         #'HOST': '172.17.0.2',
 
-        # TODO:
-        # I would really like to use this setting,
-        # but having difficulty getting it to work
-        # moving on with direct settings for now
-        # via:
+        # as long as the path to mysql.cnf is full (not relative)
+        # this seems to work
+        # more info:
         # https://docs.djangoproject.com/en/1.9/ref/databases/#connecting-to-the-database
-        #'OPTIONS': {
-        #    'read_default_file': 'mysql.cnf',
-        #},
+        'OPTIONS': {
+            'read_default_file': '/srv/content_converter/converter/mysql.cnf',
+        },
     }
 
 
